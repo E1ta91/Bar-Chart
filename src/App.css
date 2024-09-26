@@ -67,7 +67,7 @@ canvas {
 }
 @media (max-width: 375px) {
   body {
-    padding-top: 0px;
+    padding-top: 20px;
     display: flex;
     justify-items: center;
     align-items: center;
