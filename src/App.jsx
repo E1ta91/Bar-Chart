@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import BarChart from './components/barChart'
+import { useState } from 'react';
+import BarChart from './components/barChart';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DashBoard from './pages/dashBoard';
 import Home from './pages/home';
@@ -11,6 +11,10 @@ function App() {
       element: <DashBoard />,
       children: [
         {
+          index: true, // This makes "Home" the default route
+          element: <Home />,
+        },
+        {
           path: "risk-evaluation",
           element: <BarChart />,
         },
@@ -19,15 +23,10 @@ function App() {
           element: <Home />,
         },
       ],
-    }
+    },
+  ]);
 
-  ])
-  
-
-   return (
-    <RouterProvider router={router} />
-  )
-  
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

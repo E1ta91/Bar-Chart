@@ -54,7 +54,7 @@ const BarChart = () => {
  
 
   return (
-    <div className='flex justify-center items-center   '>
+    <div className='flex justify-center items-center pt-12  '>
 
       <div className='chart-container flex space-x-4'>
         <Bar

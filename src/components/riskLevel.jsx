@@ -2,7 +2,7 @@ import React from 'react'
 
 const RiskLevel = () => {
   return (
-    <div className='space-y-3 pb-14 md:space-y-3 lg:pb-6 xl:pb-6 md:pb-12 '>
+    <div className='space-y-2 pb-14 md:space-y-3 lg:pb-6 xl:pb-6 md:pb-12 '>
 
           <div className='flex space-x-4'>
             <div className='relative flex '>
