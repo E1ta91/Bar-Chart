@@ -54,7 +54,7 @@ const BarChart = () => {
  
 
   return (
-    <div className='flex justify-center items-center min-h-screen  '>
+    <div className='flex justify-center items-center   '>
 
       <div className='chart-container flex space-x-4'>
         <Bar
@@ -68,7 +68,6 @@ const BarChart = () => {
                 borderRadius: 20,
                 borderSkipped: false,
                 barThickness: 25,
-                borderWidth: 2,
                 hoverBackgroundColor: "rgba(255,99,132,0.8)",
                 
               }
@@ -88,7 +87,8 @@ const BarChart = () => {
                   font: {
                     size: 14,
                   },
-                  
+                  padding: 10,
+                  margin: 20,
                 },
               },
               x: {
