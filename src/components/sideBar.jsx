@@ -4,6 +4,7 @@ import Drawer from './drawer';
 import DrawNav from './drawnav';
 import React from 'react';
 
+
 const SideBar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const navigate = useNavigate();
@@ -14,8 +15,9 @@ const SideBar = () => {
 
     return (
         <div>
-            <div className="h-screen hidden lg:flex lg:flex-col  2xl-custom:w-[15vw] space-y-4 bg-[#9b74aa] text-black w-48 ">
-                <h2 className="text-2xl 2xl-custom:text-4xl font-bold pt-5  ">Dashboard</h2>
+        <div className=' p-1 rounded-xl'>
+            <div className=" hidden lg:flex lg:flex-col   2xl-custom:w-[15vw] space-y-4 pl-4 h-[96vh]  bg-[#ceb0da] text-black w-48 ">
+                <h2 className="text-2xl 2xl-custom:text-4xl font-bold pt-5   ">Dashboard</h2>
                 <nav>
                     <ul className='2xl-custom:text-3xl'>
                         <li className="mb-4 ">
@@ -37,9 +39,10 @@ const SideBar = () => {
                     </ul>
                 </nav>
             </div>
+            </div>
 
             {/* Mobile view navbar */}
-            <div className="flex lg:hidden justify-between items-center p-2  w-screen overflow-x-hidden bg-[#6b6868] fixed  z-40">
+            <div className="flex lg:hidden justify-between items-center p-2  w-screen  bg-[#6b6868] fixed  z-40">
                 
                     <h1 className='text-white font-semibold '>NexaLith</h1>
                 

@@ -2,64 +2,56 @@ import riskData from '../data/riskData.json';
 import { Chart as Chartjs, scales } from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import '../App.css';
-import '../styles/arrow.css'
+import '../styles/arrow.css';
 import RiskLevel from './riskLevel';
 
 const BarChart = () => {
-  // Define the top labels corresponding to each bar
   const topLabels = ['Fragmented', 'Volatil', 'Global', 'New players', 'Adaptors'];
-  const bottomLabels = ['Consolidated', 'Stable', 'Local', 'Industry', 'Laggers']; // Define bottom labels
+  const bottomLabels = ['Consolidated', 'Stable', 'Local', 'Industry', 'Laggers'];
 
-  // Custom plugin to show the top and bottom labels and value on top of each bar
   const customLabelsPlugin = {
     id: 'customLabels',
     afterDatasetsDraw: (chart) => {
       const { ctx } = chart;
-      const meta = chart.getDatasetMeta(0); // Get dataset meta for bar positions
+      const meta = chart.getDatasetMeta(0);
       const chartArea = chart.chartArea;
 
-      // Draw top labels above the chart, aligned with each bar
       ctx.save();
-      ctx.font = '13px Sans-serif'; // Font settings for top labels
-      ctx.fillStyle = '#3A0C77'; // Label color
+      ctx.font = '13px Sans-serif';
+      ctx.fillStyle = '#3A0C77';
       ctx.textAlign = 'center';
 
       meta.data.forEach((bar, index) => {
-        const topLabel = topLabels[index]; // Get corresponding top label
-        ctx.fillText(topLabel, bar.x, chartArea.top - 20); // Adjust for spacing above the chart
-        const bottomLabel = bottomLabels[index]; // Get corresponding bottom label
-        ctx.fillText(bottomLabel, bar.x, chartArea.bottom + 15); // Adjust +15 for spacing below the x-axis
+        const topLabel = topLabels[index];
+        ctx.fillText(topLabel, bar.x, chartArea.top - 20);
+        const bottomLabel = bottomLabels[index];
+        ctx.fillText(bottomLabel, bar.x, chartArea.bottom + 15);
       });
       ctx.restore();
 
-      // Draw bar value labels on top of each bar (slightly above)
-      chart.data.datasets.forEach((dataset, i) => {
+      chart.data.datasets.forEach((dataset) => {
         meta.data.forEach((bar, index) => {
           const value = dataset.data[index];
 
           ctx.save();
-          ctx.font = '15px Arial'; // Font settings for value labels
+          ctx.font = '15px Arial';
           ctx.fillStyle = 'black';
           ctx.textAlign = 'center';
-
-          // Position the value label just above each bar
-          ctx.fillText(value, bar.x, bar.y - 5); // Adjust for spacing above the bar
+          ctx.fillText(value, bar.x, bar.y - 5);
           ctx.restore();
         });
       });
     },
-
-   
   };
- 
 
   return (
-    <div className='flex justify-center items-center pt-12  '>
-
-      <div className='chart-container flex space-x-4'>
+    <div className=' '>
+      <div className='chart-container'>
+      <div className=' flex bar-box gap-4'> {/* Chart container that centers the bar chart */}
         <Bar
+        className='  '
           data={{
-            labels: riskData.map((data) => data.label), // X-axis labels
+            labels: riskData.map((data) => data.label),
             datasets: [
               {
                 label: "Risk Evaluation",
@@ -69,70 +61,60 @@ const BarChart = () => {
                 borderSkipped: false,
                 barThickness: 25,
                 hoverBackgroundColor: "rgba(255,99,132,0.8)",
-                
-              }
-            ]
+              },
+            ],
           }}
-  
           options={{
             responsive: true,
-            maintainAspectRatio: false, // Optional: Adjust based on your layout
+            maintainAspectRatio: false,
             scales: {
               y: {
                 beginAtZero: true,
                 max: 10,
                 ticks: {
-                 
                   color: '#000000',
-                  font: {
-                    size: 14,
-                  },
-                  padding: 10,
-                  margin: 20,
+                  font: { size: 14 },
+                  padding: 20,
+                },
+                grid: {
+                  color: '#000000',
+                  lineWidth: 0.5,
                 },
               },
               x: {
                 ticks: {
                   color: '#000000',
-                  font: {
-                    size: 15,
-                  },
-                  padding: 30, // Add padding to move x-axis labels lower
+                  font: { size: 15 },
+                  padding: 30,
                 },
                 grid: {
-                  display: true, // Hide x-axis grid lines if needed
+                  color: '#000000',
+                  lineWidth: 0.5,
                 },
               },
             },
             plugins: {
               legend: {
-                display: false, // Hide the legend if not needed
+                display: false,
               },
-             
             },
             layout: {
               padding: {
-                top: 60, // Add extra padding on top for the labels
-                bottom: 1, // Increase padding at the bottom for more space
+                top: 60,
+                bottom: 1,
+                left: 60,  // Add padding on the left to reduce grid width
+                right: 60, // Add padding on the right to reduce grid width
               },
             },
-           
           }}
-         
-          plugins={[customLabelsPlugin]} // Add your custom plugin
-
-          
-          
+          plugins={[customLabelsPlugin]}
         />
 
-        {/* Risk level indicators  */}
-          <RiskLevel/>
-        
-
+        {/* Risk level indicators */}
+        <RiskLevel />
       </div>
-
+      </div>
     </div>
-
   );
 };
 

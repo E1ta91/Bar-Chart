@@ -8,7 +8,7 @@ const Dashboard = () => {
       <SideBar />
 
       {/* Main content */}
-      <div className="flex-1 p-6 bg-white">
+      <div className="lg:flex-1 p-6 bg-white">
         <Outlet />
       </div>
     </div>

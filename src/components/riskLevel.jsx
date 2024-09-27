@@ -2,11 +2,11 @@ import React from 'react'
 
 const RiskLevel = () => {
   return (
-    <div className='space-y-2 pb-14  2xl-custom:pb-28 md:space-y-3 lg:pb-6 xl:pb-6 md:pb-12 '>
+    <div className='space-y-2 pt-16  2xl-custom:pb-28  md:space-y-3 lg:pt-16 xl:pb-6 md:pb-4 '>
 
           <div className='flex space-x-4'>
             <div className='relative flex '>
-              <div className='border-l-2 border-[#614283]  2xl-custom:h-[237px] h-[178px] md:h-[43px] lg:h-[70px] xl:h-[124px] arrow'></div>
+              <div className='border-l-2 border-[#614283]  2xl-custom:h-[237px] h-[100px] md:h-[43px] lg:h-[70px] xl:h-[89px] arrow'></div>
             </div>
             <div className='flex flex-col justify-center'>
               <h1 className='font-bold  2xl-custom:text-[25px]    text-[11px]'>High risk</h1>
@@ -21,7 +21,7 @@ const RiskLevel = () => {
 
           <div className='flex space-x-4'>
             <div className='relative flex '>
-              <div className='border-l-2 border-[#614283] 2xl-custom:h-[237px] h-[178px] md:h-[43px] lg:h-[70px] xl:h-[124px] arrow'></div>
+              <div className='border-l-2 border-[#614283] 2xl-custom:h-[237px] h-[100px] md:h-[43px] lg:h-[70px] xl:h-[89px] arrow'></div>
             </div>
             <div className='flex flex-col justify-center'>
               <h1 className='font-bold  2xl-custom:text-[25px]    text-[11px]'>Medium risk</h1>
@@ -33,7 +33,7 @@ const RiskLevel = () => {
 
           <div className='flex space-x-4'>
             <div className='relative flex '>
-              <div className='border-l-2 border-[#614283] 2xl-custom:h-[237px] h-[178px] md:h-[45px] lg:h-[70px] xl:h-[124px] arrow'></div>
+              <div className='border-l-2 border-[#614283] 2xl-custom:h-[237px] h-[100px] md:h-[45px] lg:h-[70px] xl:h-[90px] arrow'></div>
             </div>
             <div className='flex flex-col justify-center'>
               <h1 className='font-bold  2xl-custom:text-[25px]    text-[11px]'>Low risk</h1>
